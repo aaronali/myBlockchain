@@ -72,6 +72,11 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	
 	
 	//Register some users.  this would normally happen via the UI but we will do it here to simplify
+	_, err = t.bl.registerUser("Admin")
+	if err != nil {
+		return nil, err
+	}
+	
 	_, err = t.bl.registerUser("BANK")
 	if err != nil {
 		return nil, err
@@ -144,9 +149,17 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	if err != nil {
 		return nil, err
 	}
+	_, err = t.bl.registerTrade("bid", "admin", "JaimeKilled", defaultPrice, 50, "")
+	if err != nil {
+		return nil, err
+	}	
 	
+	_, err = t.bl.registerTrade("bid", "admin", "JonKiller", defaultPrice, 50, "")
+	if err != nil {
+		return nil, err
+	}
 	
-	_, err = t.bl.registerTrade("bid", "Aaron", "JaimeKilled", defaultPrice, 100, "")
+	_, err = t.bl.registerTrade("bid", "Aaron", "JaimeKilled", defaultPrice, 50, "")
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +171,11 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 		t.bl.writeOut("in init: after dividend in err != nil")
 		return nil, err
 	}
-	
+	_, err = t.bl.dividend("admin", 50)
+	if err != nil {
+		t.bl.writeOut("in init: after dividend in err != nil")
+		return nil, err
+	}
 	
 	t.bl.writeOut("Before return")
 	return nil, nil
