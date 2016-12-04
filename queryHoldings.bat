@@ -4,8 +4,11 @@
 
 for /f "delims=" %%x in (serviceKey.txt) do set Keytext=%%x
 
-@echo. 
-c:\curl\curl.exe -X POST --insecure --header "Content-Type: application/json" --header "Accept: application/json" -d "{\"jsonrpc\": \"2.0\",\"method\": \"query\",\"params\": {\"type\": 1,\"chaincodeID\": {\"name\": \"%Keytext:~52,128%\"},\"ctorMsg\": {\"function\": \"holdings\",\"args\": [\"Aaron\"]},\"secureContext\": \"dashboarduser_type1_2\"},\"id\": 1}" "https://56cdfd1d1c00471c913f22644988565a-vp2.us.blockchain.ibm.com:5002/chaincode"
+@echo
+set arg1=admin
+set url=http://localhost:7050/chaincode
+set chaincodename=myHL
+curl -X POST --insecure --header "Content-Type: application/json" --header "Accept: application/json" -d "{\"jsonrpc\": \"2.0\",\"method\": \"query\",\"params\": {\"type\": 1,\"chaincodeID\": {\"name\": \"%chaincodename%\"},\"ctorMsg\": {\"function\": \"holdings\",\"args\": [\"Aaron\"]},\"secureContext\": \"%arg1%\"},\"id\": 1}" "%url%"
 @echo. 
 
 pause

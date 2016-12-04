@@ -36,13 +36,14 @@ function login() {
 	    // code for old IE browsers
 		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	} 
-	xhttp.onreadystatechange = function() {
-	    if (this.readyState != 4){
+	xhttp.onreadystatechange = function() { 
+		document.getElementById("response").innerHTML=this.responseText+"\n" +document.getElementById("response").innerHTML
+	    if (this.readyState != 4){   
 	    	return false;
 	    }else if(this.status == 200) {
 	    	if(this.statusText=="OK"){
 	    		MainView();
-	    		return false
+	    			return false
 	    	}
 	    }else 
 	    if (this.status == 401) {
@@ -126,7 +127,7 @@ function query(isQuery, functionName, args,handlerFunction){
 			xhttp = new ActiveXObject("Microsoft.XMLHTTP");
 		} 
 		xhttp.onreadystatechange = function() {
-			 
+			document.getElementById("response").innerHTML=this.responseText +"\n" +document.getElementById("response").innerHTML
 		    if (xhttp.readyState != 4){
 		    	return false;
 		    }else if(xhttp.status == 200) { 
@@ -279,7 +280,7 @@ function MainView(){
 	$("#mainWindow").show()
 	var args =[userName]
 	document.getElementById('userName').innerHTML = userName	
-	document.getElementById("response").innerHTML ="<h3>Logged as "+userName+"</h3>" 
+	document.getElementById("response").innerHTML =document.getElementById("response").innerHTML + "\nLogged as "+userName
 	var xhttp = new XMLHttpRequest();
 	var q = query
 	q(true,'ballance',args,cashHandler) 
