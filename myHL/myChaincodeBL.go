@@ -54,11 +54,10 @@ type ChaincodeBusinessLayer struct {
 }
 
 func (t *ChaincodeBusinessLayer) initObjects(stub shim.ChaincodeStubInterface) error {
-	logger = shim.NewLogger("ChaincodeBusinessLayer") 
-	logger.
+	t.logger = shim.NewLogger("ChaincodeBusinessLayer")  
 	t.stub = stub
 	t.writeOut("in init obbjects")
-	logger.debugf("func (t *ChaincodeBusinessLayer) initObjects(stub shim.ChaincodeStubInterface) erro");
+	t.logger.Debugf("func (t *ChaincodeBusinessLayer) initObjects(stub shim.ChaincodeStubInterface) erro");
 	
 	//initialize our repositories
 	t.userRep.init(stub)
