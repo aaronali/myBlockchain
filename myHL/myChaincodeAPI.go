@@ -72,7 +72,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	
 	
 	//Register some users.  this would normally happen via the UI but we will do it here to simplify
-	_, err = t.bl.registerUser("Admin")
+	_, err = t.bl.registerUser("admin")
 	if err != nil {
 		return nil, err
 	}
