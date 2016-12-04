@@ -54,7 +54,7 @@ type ChaincodeBusinessLayer struct {
 }
 
 func (t *ChaincodeBusinessLayer) initObjects(stub shim.ChaincodeStubInterface) error {
-	t.logger = shim.NewLogger("ChaincodeBusinessLayer")  
+	t.logger = shim.NewLogger("chaincode")  
 	t.stub = stub
 	t.writeOut("in init obbjects")
 	t.logger.Debugf("func (t *ChaincodeBusinessLayer) initObjects(stub shim.ChaincodeStubInterface) erro");
