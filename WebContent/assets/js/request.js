@@ -15,9 +15,9 @@ $(document).ready(function() {
 var post="POST"
 var get="GET"
 var enrollId ="admin";
-var enrollSecret = "Xurw3yU9zI0l"; 
-var chainCodeId = 'myHL' 
-	var url='http://localhost:7050'
+var enrollSecret = "2190dc1521"; 
+var chainCodeId = '4f7985e572cadf01f5b9cb14819924ccffa18b6e3caadedb914068511201d62d8e3435dae8f9d0788389c44d0f5602b8890377b7e7f2077ca545e2312099a73e' 
+	var url='https://67c600b6ccca4e6a975d169855c5a17a-vp0.us.blockchain.ibm.com:5002'
 var urlExtension
 
 var userName;   

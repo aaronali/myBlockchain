@@ -76,6 +76,10 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	if err != nil {
 		return nil, err
 	}
+		_, err = t.bl.registerUser("user_type1_0")
+	if err != nil {
+		return nil, err
+	}
 	
 	_, err = t.bl.registerUser("BANK")
 	if err != nil {
@@ -149,16 +153,43 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	if err != nil {
 		return nil, err
 	}
-	_, err = t.bl.registerTrade("bid", "admin", "JaimeKilled", defaultPrice, 50, "")
+	_, err = t.bl.registerTrade("bid", "user_type1_0", "JaimeKilled", defaultPrice, 50, "")
 	if err != nil {
 		return nil, err
 	}	
 	
-	_, err = t.bl.registerTrade("bid", "admin", "JonKiller", defaultPrice, 50, "")
+	_, err = t.bl.registerTrade("bid", "user_type1_0", "JonKiller", defaultPrice, 50, "")
+	if err != nil {
+		return nil, err
+	}
+	_, err = t.bl.registerTrade("ask", "user_type1_0", "JaimeKilled", defaultPrice, 100, "")
 	if err != nil {
 		return nil, err
 	}
 	
+	_, err = t.bl.registerTrade("ask", "user_type1_0", "JaimeKiller", defaultPrice, 100, "")
+	if err != nil {
+		return nil, err
+	}
+	
+	_, err = t.bl.registerTrade("ask", "user_type1_0", "JonKilled", defaultPrice, 100, "")
+	if err != nil {
+		return nil, err
+	}
+	
+	_, err = t.bl.registerTrade("ask", "user_type1_0", "JonKiller", defaultPrice, 100, "")
+	if err != nil {
+		return nil, err
+	}
+	_, err = t.bl.registerTrade("bid", "user_type1_0", "JaimeKilled", defaultPrice, 50, "")
+	if err != nil {
+		return nil, err
+	}	
+	
+	_, err = t.bl.registerTrade("bid", "user_type1_0", "JonKiller", defaultPrice, 50, "")
+	if err != nil {
+		return nil, err
+	}	
 	_, err = t.bl.registerTrade("bid", "Aaron", "JaimeKilled", defaultPrice, 50, "")
 	if err != nil {
 		return nil, err
