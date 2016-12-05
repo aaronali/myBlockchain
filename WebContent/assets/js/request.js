@@ -16,7 +16,7 @@ var post="POST"
 var get="GET"
 var enrollId ="admin";
 var enrollSecret = "2190dc1521"; 
-var chainCodeId = '4f7985e572cadf01f5b9cb14819924ccffa18b6e3caadedb914068511201d62d8e3435dae8f9d0788389c44d0f5602b8890377b7e7f2077ca545e2312099a73e' 
+var chainCodeId = 'f90358b8f9ebbb9dfe49c86fc4d011f11146a48f70518283438e9259857655643be10f8fdf31164075ce5edb840aff8c6541eb6870a55c07114b555bd7f4418c' 
 	var url='https://67c600b6ccca4e6a975d169855c5a17a-vp0.us.blockchain.ibm.com:5002'
 var urlExtension
 
